@@ -4,11 +4,10 @@ from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
 from langchain.agents.middleware import wrap_model_call, ModelRequest, ModelResponse
 
-from tools import calculator
+from tools import tools
 
 load_dotenv()
 
-tools = [calculator]
 basic_model = ChatOpenAI(model = "gpt-4o-mini")
 advanced_model = ChatOpenAI(model = "gpt-4o")
 

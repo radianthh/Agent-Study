@@ -23,3 +23,6 @@ def calculator(a: int, b: int, operation: str) -> str:
         return f"지원하지 않는 연산: {operation}"
 
     return f"{a} {operation} {b} = {result}"    
+
+
+tools = [calculator]
