@@ -1,7 +1,7 @@
 {
-  "dependencies": ["./network_agent"],
+  "dependencies": ["./supervisor_agent_web"],
   "graphs": {
-    "agent": "./network_agent/make_graph.py:graph"
+    "agent": "./supervisor_agent_web/make_graph.py:graph"
   },
   "env": "../.env"
 }
