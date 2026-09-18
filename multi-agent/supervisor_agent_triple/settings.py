@@ -1,4 +1,8 @@
 from langchain_openai import ChatOpenAI
+from langgraph.graph import MessagesState
+
+class AgentState(MessagesState):
+    query: str = None
 
 def get_model(model_name):
     llm = ChatOpenAI(model=model_name)

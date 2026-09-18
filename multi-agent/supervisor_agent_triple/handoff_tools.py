@@ -74,3 +74,35 @@ def create_handoff_tool(agent_name: str, description: str):
             )
 
     return handoff_to_agent
+
+def create_handoff_messages(agent_name: str):
+    """
+    에이전트에서 supervisor로 돌아갈 때 사용할 handoff back 메시지들을 생성합니다.
+
+    Args:
+        agent_name: 현재 에이전트 이름
+
+    Returns:
+        tuple: (AIMessage, ToolMessage) 쌍
+    """
+
+    tool_call_id = str(uuid.uuid4())
+    tool_name = f"transfer_back_to_supervisor"
+
+    ai_message = AIMessage(
+        content=f"Supervisor로 이동합니다.",
+        name=agent_name,
+        tool_calls=[{
+            "name": tool_name,
+            "args": {},
+            "id": tool_call_id,
+        }]
+    )
+
+    tool_message = ToolMessage(
+        content=f"Supervisor로 성공적으로 작업을 전달했습니다.",
+        name=tool_name,
+        tool_call_id=tool_call_id,
+    )
+
+    return ai_message, tool_message

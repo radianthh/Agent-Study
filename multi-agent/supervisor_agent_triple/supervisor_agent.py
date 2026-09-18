@@ -1,13 +1,13 @@
 from langchain.agents import create_agent
 from handoff_tools import create_handoff_tool
 from web_agent import create_web_agent
-from db_agent import create_db_search_agent
+from db_agent import create_db_agent
 from faq_agent import create_faq_agent
 from settings import get_model, get_system_prompt
 
 agents = {
     "web_search": create_web_agent,
-    "db_search": create_db_search_agent,
+    "db_search": create_db_agent,
     "faq": create_faq_agent,
 }
 
@@ -31,5 +31,5 @@ model = get_model(model_name = "gpt-4o")
 supervisor = create_agent(
     model = model,
     tools = handoff_tools,
-    system_prompt = get_system_prompt,
+    system_prompt = get_system_prompt(),
 )
