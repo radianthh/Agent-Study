@@ -33,7 +33,7 @@ def create_agent_card() -> AgentCard:
     )
 
     agent_card = AgentCard(
-        name='LanGraph Agent',
+        name='LangGraph Agent',
         description='수학 계산과 시간 정보를 제공하는 다목적 에이전트',
         url='http://localhost:10001',
         version='1.0.0',
